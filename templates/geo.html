@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+
+
+  
+
+
+
+
+  <title>Groupie tracker</title>
+  <style>
+    #map {margin-left: auto;
+      margin-right: auto; width: 100%; height: 400px; }
+    </style>
+</head>
+<body>
+
+  <div id ="nom" : >{{.NameAPI}}</div>
+  <br>
+  <script>
+    var secondArr = Array()
+  </script>
+<div id="map"></div>
+
+LIEUX :{{range.LocationAPI}}
+<div id ="lieu" : >{{.}}</div>
+  
+    <script>
+      myArr = ["{{.}}"]
+      secondArr.push(...myArr)
+    </script>
+   
+ 
+{{end}}
+  <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+
+  <script>
+ var lieu = document.getElementById("lieu")
+
+
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiZ3VpYmFyaXN0ZSIsImEiOiJjbDhzazQ5eDMxY2tkM25ydWo5NnpjYnJhIn0.pgKQ-yWc2f10v0En66JQ1Q';
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+   
+    //--- Declare an Array of Locations that Need Markers...
+  
+  
+   locations = secondArr
+    //--- Declare Empty Array for Longitute-Latitude Centers...
+    var lnglat = Array()
+
+    //--- Draw the Map Centered...
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-70.070159, 40.155872],
+      zoom: 0
+    }); 
+ 
+  //--- For Each Location Geocode the Address and Place Marker on Map...
+locations.forEach(myGeocoder);
+
+  function myGeocoder(item, index) {  
+    mapboxClient.geocoding
+    .forwardGeocode({
+      query: item,
+      autocomplete: false,
+      limit: 1
+    })
+    .send()
+    .then(function (response) {
+      if (response &&
+      response.body &&
+      response.body.features &&
+      response.body.features.length
+   
+      ){
+        //--- Get the Response from the MapBox Server...
+        var feature = response.body.features[0];
+            
+        //--- Console Display Where We're at in the List...
+        //console.log(locations[index]);
+        //console.log(response.body.features[0].center);
+            
+        //--- Get Longitude-Latitute Center of this Location from Response...
+        lnglat[index] = response.body.features[0].center
+
+        // Create a marker and add it to the map.
+        new mapboxgl.Marker().setLngLat(lnglat[index]).addTo(map);
+    
+      }
+    }); 
+
+}
+
+  </script>
+
+
+
+ 
+   
+ 
+</body>
+</html>

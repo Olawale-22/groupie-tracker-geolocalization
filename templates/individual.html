@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/details.css">
+    <title>{{ .Name }}</title>
+    
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <!--<script src="../js/mapboxKey.js" defer></script>-->
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <img class="shift" src="https://images-ext-2.discordapp.net/external/F80oNdrR-7ZD1GpocVmhF_u3btJgS4RLOo_Zw6iUYSA/https/zone01rouennormandie.org/wp-content/uploads/2021/10/zone01-logo-rouen_normandie.png">
+        <nav>
+            <ul>
+                <li><a href="/"><b>Home</b></a></li>
+                <li><a href="./static/about.html"><b>About</b></a></li>
+                <li><a href="./static/contact.html"><b>Contact</b></a></li>
+            </ul>
+        </nav>
+        <h2 class="shadow">The Music Groupie.</h2>
+        <h4>your entertainment curiosity server...</h4>
+    </header>
+
+    <div class="body">
+        <fieldset class="box">
+            <div>
+                <img src="{{ .Image }}"/>
+            </div>
+            <div>
+                <h3>{{ .Name }}</h3><br />
+                <p style="padding:5px;">Created in: {{ .CreationDate }}</p>
+                <p style="padding:5px;">First Album: {{ .FirstAlbum }}</p>
+            </div>
+                <div style="margin-top: 60px;  float: left;">
+                    <div style="margin-bottom: 5px; font-size: 25px;"><b><u>Members</u></b></div>
+                    <ul>
+                        {{ range .Members }}
+                        <li>{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+                <div style="margin-top: 60px;  margin-bottom: 20px; float: inherit;">
+                    <div style="margin-bottom: 10px; margin-left: 10px; font-size: 25px;"><b><u>Concert Dates</u></b></div>
+                    <ul class="alignment" style="margin-left: 10px;">
+                        {{ range $key, $value := .Relation }} <li id="loc">{{ $key }}
+                            <ul style="white-space: normal;">
+                                {{ range $value }}
+                                <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        {{ end }}
+                    </ul>
+                </div>
+                <div  style="margin-top: 100px;">
+                    <ul>
+                        {{ range .Locations}}
+                        <li>{{.}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            </div>
+        </fieldset>
+    </div><br />
+    <script>
+        var locArrays = Array()
+    </script>
+    <div id="map" style="margin-left: 5px; margin-bottom: 50px; height: 600px; width: 100%;"></div>
+
+    <section style="margin-bottom: 50px; margin-left: 30px;">Concert Locations :{{ range.Locations }}
+    <div id ="places" values="{{.}}" >{{.}}</div>
+    
+        <script>
+        placesArray = ["{{.}}"]
+        locArrays.push(...placesArray)
+        </script>
+    
+    {{end}}
+    </section>
+    <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+
+  <script>
+ //var lieu = document.getElementById("places")
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoib2xhd2FsZTIyIiwiYSI6ImNsOHNpdW15MTB3bXkzb24xdTljNXF2emUifQ.Ak7V5s4CJMXFqqYXi97Vkw';
+    var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+   
+    //--- Declare an Array of Locations that Need Markers...
+  
+  
+   locations = locArrays
+    //--- Declare Empty Array for Longitute-Latitude Centers...
+    var lnglat = Array()
+    //--- Draw the Map Centered...
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-74.070159, 40.155872],
+      zoom: 2
+    });
+
+  //--- For Each Location Geocode the Address and Place Marker on Map...
+locations.forEach(myGeocoder);
+
+  function myGeocoder(item, index) {  
+    mapboxClient.geocoding
+    .forwardGeocode({
+      query: item,
+      autocomplete: false,
+      limit: 2
+    })
+    .send()
+    .then(function (response) {
+      if (response &&
+      response.body &&
+      response.body.features &&
+      response.body.features.length
+      ){
+        //--- Get the Response from the MapBox Server...
+        var feature = response.body.features[0];
+        //--- Console Display Where We're at in the List...
+        //console.log(locations[index]);
+        //console.log(response.body.features[0].center);
+            
+        //--- Get Longitude-Latitute Center of this Location from Response...
+        lnglat[index] = response.body.features[0].center
+
+        // Create a marker and add it to the map.
+        new mapboxgl.Marker().setLngLat(lnglat[index]).addTo(map);
+    
+      }
+    });
+
+}
+
+  </script>
+    <footer>
+        <p>Project By Olawale22</p>
+    </footer>
+</body>
+</html>
+
+
+
+<!--<div style="margin-left: 5px; margin-bottom: 50px; height: 400px; width: 100%;" id="map"></div>
+    {{range .Location}}
+    <p value="{{.Lat}}" id="lat"></p>
+    <p value="{{.Lng}}" id="lng"></p>
+        <script>
+            var latt = document.getElementById(lat)
+            var long = document.getElementById(lng)
+            function initMap() {
+                var Locate = {lat: latt, lng: long};
+                var map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 4,
+                    center: Locate
+                });
+                var marker = new google.maps.Marker({
+                    position: Locate,
+                    map: map
+                });
+            }
+        </script>
+    </div>
+    {{end}}
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFC7OK5o8blljL25668lSZmGbdt2x78Qo&callback=initMap"></script>
+-->

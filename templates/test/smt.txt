@@ -1,0 +1,13 @@
+<div>
+<form action="/search" method="POST">
+                <input type="text" placeholder="Search.." name="search" value="">
+                <button type="submit"><i>GO..</i></button>
+            </form>
+            </div>
+
+
+
+
+<script async src="https://cse.google.com/cse.js?cx=8215f5d76e1784398">
+            </script>
+            <div class="gcse-search"></div>

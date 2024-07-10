@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.filterLabel {
+    margin-left: 5px;
+    width: 210px;
+    color: rgb(119, 202, 119);
+}
+
+.filterRange {
+    display: flex;
+    color:red;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.filter {
+    left: 20%;
+    display: flex;
+    color:black;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px black;
+    margin-top: 10px;
+}
+
+#fill {
+    float: center;
+    left: 50%;
+    margin-left: 80px;
+}
+
+.wrapper {
+    margin-left: 50px;
+}
+
+#start {
+    position: relative;
+}
+
+#createdTill {
+    position: relative;
+}
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+.filter-class {
+    margin: 0;
+    margin-left: 20px;
+    padding: 0;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+button {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: brown;
+    border-color: brown;
+    
+}
+
+button a {
+    color: white;
+}
+
+button a:hover {
+    color: white;
+}
+
+.body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: black;
+    background-attachment: fixed;
+    background-position: center;
+    padding-top:40px;
+    animation-name: colorful;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes colorful {
+    0% {
+      background-color: black;
+      top: 0px;
+      left: 0px;
+    }
+    25% {
+      background-color: black;
+      top: 0px;
+        left: 30px;
+    }
+    50% {
+      background-color: rgb(128, 50, 230);
+      top: 50px;
+        left: 30px;
+    }
+    70% {
+      background-color: rgb(128, 50, 230);
+      top: 50px;
+      left: -30px
+    }
+    85% {
+        background-color: black;
+      top: 50px;
+      left: 0px;
+    }
+    100% {
+        background-color: black;
+        top: 50px;
+        left: -40px;
+    }
+}
+
+h2 {
+    text-align: center;
+    font-size: 73px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 84px;
+    margin-right: 24px;
+    margin-left: -50px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+h4 {
+    text-align: center;
+    margin-top: -18px;
+    margin-right: 200px;
+    margin-left: -194px;
+    font-size: 18px;
+    color: red;
+    text-shadow: 20px 10px 20px black;
+}
+
+.shift {
+    margin-top: -20px;
+    float: left;
+    height: 70px;
+    width: 70px;
+    margin-top: -10px;
+    margin-left: -30px;
+}
+
+.shadow {
+    text-shadow: 5px 5px 9px 0px green;
+}
+
+header {
+    height: 330px;
+    width: 100%;
+    background: url(music-store.jpg) no-repeat center;
+    margin-left: -10px;
+    margin-top: -20px;
+    margin-right: -10px;
+    background-size: cover;
+    padding: 40px;
+    color: white;
+    font-size: 130%;
+}
+
+.box {
+    background-color: magenta;
+    border-color: black;
+    border-width: 10px;
+    border-radius: 10px;
+    width: 350px;
+    height: 350px;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav {
+    float: right;
+    margin-right: 36px
+}
+
+nav ul li a {
+    font-size: 19px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: brown;
+    text-decoration: none;
+}
+
+
+nav ul li a:hover {
+    color: green;
+}
+
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.content {
+    margin-top: -5px;
+    margin-left: -30px;
+}
+
+@media (min-width: 1200px) {
+  .content{ margin: 0 auto; margin-bottom: 10px;}
+  .box{height: fit-content; background-color: magenta;}
+  header{ padding: auto;}
+  h2{font-size: 82px;}
+  h4{font-size: 22px; position: center; margin-left: 0px;}
+}
+
+  /* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    .content{ margin: 0 auto; margin-bottom: 10px;}
+    .box{height: fit-content; background-color: magenta;}
+    header{ padding: auto;}
+    h2{font-size: 55px; margin-right: -36px;}
+    h4{font-size: 15px; position: center; margin-left: 0px; margin-right: -2px; margin-top: 0px;}
+    nav { margin-right: -28px; margin-top: -2px;}
+}
+
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+    .content{ margin: 0 auto; margin-bottom: 10px;}
+    .box{height: fit-content; background-color: magenta;}
+    header{ padding: auto;}
+    h2{font-size: 65px;}
+    h4{font-size: 20px; position: center; margin-left: 0px;}
+}
+
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+    .content{ margin: 0 auto; margin-bottom: 10px;}
+    .box{height: fit-content; background-color: magenta;}
+    header{ padding: auto;}
+    h2{font-size: 65px;}
+    h4{font-size: 20px; position: center; margin-left: 0px;}
+}
+
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+    .content{ margin: 0 auto; margin-bottom: 10px;}
+    .box{height: fit-content; background-color: magenta;}
+    header{ padding: auto;}
+    h2{font-size: 73px;}
+    h4{font-size: 18px; position: center; margin-left: 0px;}
+}
+
+
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+    .content{ margin: 0 auto; margin-bottom: 10px;}
+    .box{height: fit-content; background-color: magenta;}
+    header{ padding: auto;}
+    h2{font-size: 82px;}
+    h4{font-size: 22px; position: center; margin-left: 0px;}
+}
+
+img {
+    margin-bottom: 10px;
+}
+
+img .box {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.box .cont{
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: brown;
+}
+.cl {
+    font-size: 14px;
+}
+a:hover {
+    color: green;
+}
+
+button:hover {
+    background-color: rgb(117, 43, 43);
+    color: white;
+    border-radius:10px;
+    border: unset;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: large;
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+    padding: 5px;
+    z-index:99;
+}

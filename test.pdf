@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+        <meta name="viewport" content="width-device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Groupie Tracker</title>
+        <link rel="stylesheet" href="../assets/home.css">
+    </head>
+    <body>
+        <header>
+            <img class="shift" src="https://images-ext-2.discordapp.net/external/F80oNdrR-7ZD1GpocVmhF_u3btJgS4RLOo_Zw6iUYSA/https/zone01rouennormandie.org/wp-content/uploads/2021/10/zone01-logo-rouen_normandie.png">
+            <nav>
+                <ul>
+                    <li><a href="/"><b>Home</b></a></li>
+                    <li><a href="./static/about.html"><b>About</b></a></li>
+                    <li><a href="./static/contact.html"><b>Contact</b></a></li>
+                </ul>
+            </nav>
+            <h2 class="shadow">The Music Groupie.</h2>
+            <h4>your entertainment curiosity server...</h4>
+        </header>
+        <div>
+            <form action="/Search" method="POST">
+                    <input style="height: 33px; width: 25%; margin-left: 4px; padding-left: 5px; border-color: azure; border-width: 4px;" type="text" list="search-input" placeholder="What are you looking for?" name="q" value="" id="site-search">
+                    <button style="font-size:medium; " type="submit" value="search"><i>search</i></button>
+                    <datalist id="search-input">
+                        <option>acdc</option>
+                        <option>aerosmith</option>
+                        <option>axl rose</option>
+                        <option>alec benjamin</option>
+                        <option>bee gees</option>
+                        <option>collins</option>
+                        <option>deep purple</option>
+                        <option>dire straits</option>
+                        <option>pink floyd</option>
+                        <option>queen</option>
+                        <option>red hot chili</option>
+                        <option>rihanna</option>
+                        <option>imagine dragons</option>
+                        <option>jimi hendrix</option>
+                        <option>jarad higgins</option>
+                        <option>j. cole</option>
+                        <option>joyner lucas</option>
+                        <option>juice</option>
+                        <option>Gorillaz</option>
+                        <option>green day</option>
+                        <option>coldplay</option>
+                        <option>japan</option>
+                        <option>pearl jam</option>
+                        <option>katy perry</option>
+                        <option>phil collins</option>
+                        <option>Mamonas Assassinas</option>
+                        <option>McFerrins</option>
+                        <option>maroon 5</option>
+                        <option>bobby McFerrins</option>
+                        <option>logic</option>
+                        <option>mac miller</option>
+                        <option>xxxtentacion</option>
+                        <option>scorpions</option>
+                        <option>led zeppelin</option>
+                        <option>travis scott</option>
+                        <option>post malone</option>
+                        <option>R3HAB</option>
+                        <option>kendrick lamar</option>
+                        <option>Genesis</option>
+                        <option>bee gees</option>
+                        <option>Nickelback</option>
+                        <option>mob deep</option>
+                        <option>NWA</option>
+                        <option>U2</option>
+                        <option>guns</option>
+                        <option>arctic monkey</option>
+                        <option>fall out boy</option>
+                        <option>Metallica</option>
+                        <option>eagles</option>
+                        <option>linkin park</option>
+                        <option>eminem</option>
+                        <option>foo fighters</option>
+                        <option>chainsmokers</option>
+                        <option>mus</option>
+                        <option>rolling stones</option>
+                    </datalist>
+            </form>
+        </div>
+        <section id="filter">
+
+            <form action="/" method="POST">
+                <div class="filterRange">
+                    <label class="filter-title" for="startCD">Filter by creation date</label>
+                    <div id=start>
+                        <input type="range" min="1900" max="2020" step="1" id="startCD" name="startCD" value="1900">
+                        <input type="range" min="1900" max="2020" step="1" id="endCD" name="endCD" value="2020">
+                    </div>
+                    <label class="filter-item-start" for="from-date" top>From: </label><br/>
+                    <div name="from-date" class="filter-item filter-number" id="from-date" maxlength="4"></div>
+                    <label class="filter-item-start" for="till-date" top>Till: </label><br/>
+                    <div name="till-date" class="filter-item filter-number" id="till-date" maxlength="4"></div>
+                </div>
+                <br>
+                <div class="filter">
+                    <label class="filter-title">Filter by first album date</label>
+                    <label class="filter-item" for="startFA">From:</label>
+                    <input type="date" class="filter-item" id="startFA" name="startFA">
+                    <label for="endFA" class="filter-item" for="till-date" top>Till: </label><br/>
+                    <input type="date" class="filter-item" id="endFA" name="endFA">
+                </div>
+                <br>
+                <div class="filter">
+                    <label class="filter-title">Filter by number of members</label>
+                    <input type="checkbox" class="filter-item" id="1" name="mem1" value="1">
+                    <label for="1"> 1 </label>
+                    <input type="checkbox" class="filter-item" id="2" name="mem2" value="2">
+                    <label for="2"> 2 </label>
+                    <input type="checkbox" class="filter-item" id="3" name="mem3" value="3">
+                    <label for="3"> 3 </label>
+                    <input type="checkbox" class="filter-item" id="4" name="mem4" value="4">
+                    <label for="4"> 4 </label>
+                    <input type="checkbox" class="filter-item" id="5" name="mem5" value="5">
+                    <label for="5"> 5 </label>
+                    <input type="checkbox" class="filter-item" id="6" name="mem6" value="6">
+                    <label for="6"> 6 </label>
+                    <input type="checkbox" class="filter-item" id="7" name="mem7" value="7">
+                    <label for="7"> 7 </label>
+                    <input type="checkbox" class="filter-item" id="8" name="mem8" value="8">
+                    <label for="8"> 8 </label>
+                </div>
+                <br>
+                <button type="submit" class="filter-submit">Filter</button>
+                <br>
+            </form>
+    
+    
+            <script>
+                document.getElementById('from-date').style.visibility = 'hidden';
+                document.getElementById('till-date').style.visibility = 'hidden';
+                document.getElementById('startCD').addEventListener('input', function functionName(e) {
+                    document.getElementById('from-date').style.visibility = 'visible';
+                    let start = e.target.value;
+                    console.log(start);
+                    document.getElementById('from-date').innerHTML = start;
+    
+                });
+    
+                document.getElementById('endCD').addEventListener('input', function functionName(e) {
+                    document.getElementById('till-date').style.visibility = 'visible';
+                    let end = e.target.value;
+                    console.log(end);
+                    document.getElementById('till-date').innerHTML = end;
+    
+                });
+            </script>
+    
+        </section>
+        <!--<div style="margin-left: 450px; margin-top: -20px; margin-bottom: 10px;">
+            <label style="margin-top: -5px;">Filter Creation Date </label>
+            <input style="margin-left: 10px;" type="range" min="1950" max="2022" value="1" oninput="filter(this)">
+            <script>
+                function filter(e) {
+                    e.nextElementSibling.value = e.value;
+                    const filtereds = artists.filter(s=>s.goals>=e.value);
+                    console.clear();
+                    console.log(filtereds);
+                }
+            </script>
+        </div>-->
+        <div class="body">
+            {{ range . }}
+                <div class="box">
+                    <div class="cont">
+                        <img src="{{ .Image }}"/>
+                        <div class="content">
+                            <h3 style="color: green;" ><a href="/individual?id={{ .ID }}">{{ .Name }}</a></h3>
+                            <p>Created in: {{ .CreationDate }}</p>
+                            <p>First Album: {{ .FirstAlbum }}</p>
+                            <p class="cl"><a href="/individual?id={{ .ID }}"><b>for upcoming events, dates and location <u>click here</u></a></b></p>
+                        </div>
+                    </div>
+                </div>
+            {{ end }}
+        </div><br />
+        <br />
+        <footer>
+            <p>Project By Olawale22 and !Sai</p>
+        </footer>
+    </body>
+</html>
+
+
+
+
+<!--<div class="filter">
+    <label class="filter-title" for="location-filter">Filter by locations of concerts</label>
+    <input type="text" class="filter-item" id="location-filter" name="location-filter" placeholder="Location" list="location-name">
+    <datalist style="text-transform: uppercase;" id="location-name">
+        {{range .}}
+        {{range .Locations}}
+        <option value={{.}}>{{.}} - location</option>
+        {{end}}
+        {{end}}
+    </datalist>
+</div> -->
+
+
+
+// google map into website---- just paste the following line into your html file and get a live map displayed on your website
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d20758.523500906573!2d1.0919007!3d49.4313032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1664817367951!5m2!1sen!2sfr" width="1200" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
